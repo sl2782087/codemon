@@ -5,10 +5,12 @@
 ```javascript
 Array.prototype.flatten = function() {
   return this.reduce(
-    (a, b) => (Array.isArray(b) ? a.concat(b.flatten) : a.concat([b])),
+    (a, b) => (Array.isArray(b) ? a.concat(b.flatten()) : a.concat([b])),
     []
   );
 };
+
+//[1,[2,[3]]].flatten() -> [1,2,3]
 ```
 
 ### 版本二
@@ -17,5 +19,7 @@ Array.prototype.flatten = function() {
 Array.prototype.flatten = function() {
   return [].concat(...this.map(a => (Array.isArray(a) ? a.flatten() : a)));
 };
+
+//[1,[2,[3]]].flatten() -> [1,2,3]
 ```
 
