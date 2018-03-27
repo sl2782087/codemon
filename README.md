@@ -23,3 +23,13 @@ Array.prototype.flatten = function() {
 //[1,[2,[3]]].flatten() -> [1,2,3]
 ```
 
+## Returns all unique values of an array 数组去重
+
+
+```javascript
+Array.prototype.onlyone = function() {
+  return [new Set(...this)]
+};
+
+//[1,2,3,1].onlyone () -> [1,2,3]
+```
