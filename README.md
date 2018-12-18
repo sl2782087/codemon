@@ -29,3 +29,20 @@ Array.prototype.onlyone = function() {
 
 //[1,2,3,1].onlyone() -> [1,2,3]
 ```
+## 实现类似add(1)(2)(3)调用方式的方法
+
+```javascript
+function add(x) {
+  let sum = x;
+  const fn = function(y) {
+    sum = sum + y;
+    return fn
+  }
+  fn.toString = function() {
+    return sum
+  }
+  return fn
+}
+
+//add(1)(2)(3) -> 6
+```
